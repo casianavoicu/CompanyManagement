@@ -16,10 +16,14 @@ namespace FinanceManagementWebApi.BusinessLogic
 
         public async Task CreateAsync(InvoiceDto invoice)
         {
+            if(invoice.Product == null)
+                throw new ArgumentNullException(nameof(invoice.Product));
+            
             var dbInvoice = new Invoice
             {
                 InvoiceBody = JsonSerializer.Serialize(invoice),
             };
+
             await _invoiceService.CreateAsync(dbInvoice);
         }
 

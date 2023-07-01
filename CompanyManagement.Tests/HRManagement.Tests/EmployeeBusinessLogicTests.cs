@@ -13,22 +13,23 @@ using NSubstitute.ReturnsExtensions;
 
 namespace CompanyManagement.Tests.HRManagement.Tests
 {
-    public class EmployyeBusinessLogicTests
+    public class EmployeeBusinessLogicTests
     {
         private readonly ServiceProvider _serviceProvider;
         private readonly Fixture _fixture;
 
-        public EmployyeBusinessLogicTests()
+        public EmployeeBusinessLogicTests()
         {
             var services = new ServiceCollection();
 
             var mockedEmployeeService = Substitute.For<IEmployeeService>();
             var mockedMapper = Substitute.For<IMapper>();
+            var mockedPublisherHandler = Substitute.For<IPublisherHandler>();
 
             services.AddSingleton(mockedEmployeeService); 
             services.AddSingleton(mockedMapper);
             services.AddScoped<IEmployeeBusinessLogic, EmployeeBusinessLogic>();
-
+            services.AddSingleton(mockedPublisherHandler);
             services.AddAutoMapper(typeof(EmployeeMapperProfile));
 
             _serviceProvider = services.BuildServiceProvider();
@@ -98,7 +99,7 @@ namespace CompanyManagement.Tests.HRManagement.Tests
             var mockedEmployeeService = _serviceProvider.GetRequiredService<IEmployeeService>();
             mockedEmployeeService.GetByIdAsync(Arg.Any<int>()).ReturnsNull();
 
-            var getByIdResult = await employeeBusinessLogic.GetByIdAsync(2);
+            var getByIdResult = await employeeBusinessLogic.GetByIdAsync(Arg.Any<int>());
 
             Assert.IsType<NotFoundResult>(getByIdResult.Result);
         }

@@ -20,11 +20,13 @@ namespace ITSuportManagementApi.Service
             await _context.SaveChangesAsync();
         }
 
-        public async Task CreateAsync(Employee employee)
+        public async Task<Employee> CreateAsync(Employee employee)
         {
             _context.Employee.Add(employee);
 
             await _context.SaveChangesAsync();
+
+            return employee;
         }
 
         public async Task<List<Equipment>> GetAllAsync()

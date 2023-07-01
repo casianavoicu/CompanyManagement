@@ -26,7 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FinanceManagementWebApi\FinanceManagementWebApi.csproj" />
     <ProjectReference Include="..\HRManagementWebApi\HRManagementWebApi.csproj" />
+    <ProjectReference Include="..\ITSuportManagementApi\ITSuportManagementApi.csproj" />
   </ItemGroup>
 
 </Project>

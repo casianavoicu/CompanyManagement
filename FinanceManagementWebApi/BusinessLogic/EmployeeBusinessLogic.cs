@@ -15,6 +15,9 @@ namespace FinanceManagementWebApi.BusinessLogic
 
         public async Task CreateAsync(EmployeeDto employeeDto)
         {
+            if(employeeDto.EmployeeId == default)
+                throw new ArgumentNullException(nameof(employeeDto.EmployeeId));
+           
             var employee = new Employee
             {
                 Email= employeeDto.Email,
@@ -23,7 +26,8 @@ namespace FinanceManagementWebApi.BusinessLogic
                 PaymentDate = DateTime.Now,
                 Salary= employeeDto.Salary,
             };
-           await _employeeService.CreateAsync(employee);
+           
+            await _employeeService.CreateAsync(employee);
         }
     }
 }
