@@ -11,7 +11,6 @@ namespace CompanyManagement.MessageIntegration
 
         public PublisherHandler(IConnectionFactory connectionFactory)
         {
-            //var factory = new ConnectionFactory { HostName = "localhost" };
             _connectionFactory = connectionFactory;
             _connectionFactory.UserName = "guest";
             _connectionFactory.Password = "guest";
