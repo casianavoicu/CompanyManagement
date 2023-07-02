@@ -2,6 +2,6 @@
 {
     public interface IQueueHandler 
     {
-        void Register(string exchangeName, string to, IMessageHandler message);
+        void Register(string exchangeName, IMessageHandler message);
     }
 }

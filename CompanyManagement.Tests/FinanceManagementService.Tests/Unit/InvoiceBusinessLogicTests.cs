@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 
-namespace CompanyManagement.Tests.FinanceManagementService.Tests
+namespace CompanyManagement.Tests.FinanceManagementService.Tests.Unit
 {
     public class InvoiceBusinessLogicTests
     {
@@ -41,7 +41,7 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests
             var invoice = _fixture.Create<InvoiceDto>();
             var invoiceBusinessLogic = _serviceProvider.GetRequiredService<IInvoiceBusinessLogic>();
             var invoiceService = _serviceProvider.GetRequiredService<IInvoiceService>();
-           
+
             await invoiceBusinessLogic.CreateAsync(invoice);
             await invoiceService.Received(1).CreateAsync(Arg.Any<Invoice>());
         }
@@ -61,11 +61,11 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests
         [Fact]
         public async Task GetAllAsync_Should_Return_InvoiceList()
         {
-         
+
             var invoiceBusinessLogic = _serviceProvider.GetRequiredService<IInvoiceBusinessLogic>();
             var invoiceService = _serviceProvider.GetRequiredService<IInvoiceService>();
 
-            var result =  await invoiceBusinessLogic.GetAllAsync();
+            var result = await invoiceBusinessLogic.GetAllAsync();
 
             await invoiceService.Received(1).GetAllAsync();
             result.Should().NotBeNull();

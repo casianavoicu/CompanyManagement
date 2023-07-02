@@ -6,6 +6,6 @@ namespace ITSuportManagementApi.Service
     {
         Task<Employee> CreateAsync(Employee employee);
         Task AssignEquipmentAsync(Equipment equipment);
-        Task<List<Equipment>> GetAllAsync();
+        Task<List<Equipment>> GetEquipmentsAsync();
     }
 }

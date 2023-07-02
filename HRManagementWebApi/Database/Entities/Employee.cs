@@ -5,7 +5,7 @@ namespace HRManagementWebApi.Database.Entities
     sealed public class Employee
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public string? FirstName { get; set; }
 
@@ -14,8 +14,6 @@ namespace HRManagementWebApi.Database.Entities
         public decimal Salary { get; set; }
 
         public string? Email { get; set; }
-
-        public DateTime StartDate { get; set; }
 
     }
 }

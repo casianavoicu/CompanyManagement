@@ -15,15 +15,14 @@ namespace FinanceManagementWebApi.BusinessLogic
 
         public async Task CreateAsync(EmployeeDto employeeDto)
         {
-            if(employeeDto.EmployeeId == default)
-                throw new ArgumentNullException(nameof(employeeDto.EmployeeId));
+            if(employeeDto.Email == null)
+                throw new ArgumentNullException(nameof(employeeDto.Email));
            
             var employee = new Employee
             {
                 Email= employeeDto.Email,
                 FirstName= employeeDto.FirstName,  
                 LastName= employeeDto.LastName,
-                PaymentDate = DateTime.Now,
                 Salary= employeeDto.Salary,
             };
            

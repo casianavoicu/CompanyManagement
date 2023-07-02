@@ -1,5 +1,4 @@
 ﻿using CompanyManagement.Common.Dto;
-using CompanyManagement.MessageIntegration;
 using System.Text.Json;
 
 namespace ITSuportManagementApi.BusinessLogic
@@ -7,19 +6,18 @@ namespace ITSuportManagementApi.BusinessLogic
     sealed public class UserMessageHandler : IUserMessageHandler
     {
         private readonly IEmployeeBusinessLogic _employeeBusinessLogic;
-        private readonly IPublisherHandler _publisherHandler;
-        public UserMessageHandler(IEmployeeBusinessLogic employeeBusinessLogic,
-            IPublisherHandler publisherHandler)
+        public UserMessageHandler(IEmployeeBusinessLogic employeeBusinessLogic)
         {
             _employeeBusinessLogic = employeeBusinessLogic;
-            _publisherHandler = publisherHandler;
         }
 
         public void Process(string message)
         {
+            if (string.IsNullOrEmpty(message))
+                throw new ArgumentNullException("Message is null");
+
             var userDto = JsonSerializer.Deserialize<EmployeeDto>(message);
             _employeeBusinessLogic.HandleRegistrationAsync(userDto!).GetAwaiter().GetResult();
-
         }
     }
 

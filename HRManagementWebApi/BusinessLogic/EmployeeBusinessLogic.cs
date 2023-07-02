@@ -2,7 +2,6 @@
 using CompanyManagement.Common.Dto;
 using CompanyManagement.MessageIntegration;
 using CompanyManagement.MessageIntegration.Constants;
-using CompanyManagement.MessageIntegration.ExceptionExtension;
 using HRManagementWebApi.Database.Entities;
 using HRManagementWebApi.Service;
 using Microsoft.AspNetCore.Connections;
@@ -64,13 +63,9 @@ namespace HRManagementWebApi.BusinessLogic
 
                 return new NoContentResult();
             }
-            catch (QueueException)
+            catch (Exception ex )
             {
-                return new BadRequestResult();
-            }
-            catch (Exception ex)
-            {
-                return new UnprocessableEntityResult();
+                return new UnprocessableEntityObjectResult(ex.Message);
             }
         }
 

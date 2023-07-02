@@ -15,6 +15,5 @@ namespace FinanceManagementWebApi.Database.Entities
 
         public decimal Salary { get; set; }
 
-        public DateTime PaymentDate { get; set; }
     }
 }

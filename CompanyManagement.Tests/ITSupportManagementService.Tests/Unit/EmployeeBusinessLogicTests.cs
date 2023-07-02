@@ -10,8 +10,6 @@ using ITSuportManagementApi.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
-using static CompanyManagement.Tests.ITSupportManagementService.Tests.EmployeeBusinessLogicTests;
 
 namespace CompanyManagement.Tests.ITSupportManagementService.Tests
 {
@@ -113,9 +111,5 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests
 
         }
 
-        void Setup()
-        {
-
-        }
     }
 }

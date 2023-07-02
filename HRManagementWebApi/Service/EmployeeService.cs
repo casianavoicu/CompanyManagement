@@ -15,6 +15,7 @@ namespace HRManagementWebApi.Service
 
         public async Task<Employee> AddAsync(Employee employee)
         {
+            employee.Id = default;
             _dbContext.Employee.Add(employee);
             await _dbContext.SaveChangesAsync();
 

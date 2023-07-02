@@ -29,7 +29,7 @@ namespace ITSuportManagementApi.Service
             return employee;
         }
 
-        public async Task<List<Equipment>> GetAllAsync()
+        public async Task<List<Equipment>> GetEquipmentsAsync()
         {
             return await _context.Equipment.ToListAsync();
         }

@@ -15,7 +15,8 @@ namespace FinanceManagementWebApi.Handler
 
         public void Process(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            if (string.IsNullOrEmpty(message))
+                throw new ArgumentNullException("Message is null");
 
             Console.WriteLine("Message Received");
 

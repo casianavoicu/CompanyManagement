@@ -9,9 +9,9 @@ namespace HRManagementWebApi.Automapper
 
         public EmployeeMapperProfile()
         {
-            CreateMap<Employee, EmployeeDto>();
-            CreateMap<EmployeeLightDto, Employee>()
-                .ForMember(e => e.StartDate, o => o.MapFrom(s => DateTime.Now));
+            CreateMap<Employee, EmployeeDto>()
+                .ForMember(e => e.EmployeeId, o => o.MapFrom(s => s.Id));
+            CreateMap<EmployeeLightDto, Employee>();
         }
     }
 }

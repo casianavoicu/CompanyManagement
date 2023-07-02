@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 
-namespace CompanyManagement.Tests.FinanceManagementService.Tests
+namespace CompanyManagement.Tests.FinanceManagementService.Tests.Unit
 {
     public class FinanceEmployeeBusinessLogicTests
     {
@@ -48,10 +48,10 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests
         }
 
         [Fact]
-        public async Task CreateAsync_Should_Throw_ArgumentNullException()
+        public async Task CreateAsync_When_Email_Is_Null_Should_Throw_ArgumentNullException()
         {
             var employee = _fixture.Create<EmployeeDto>();
-            employee.EmployeeId = default;
+            employee.Email = null;
 
             var employeeBusinessLogic = _serviceProvider.GetRequiredService<IEmployeeBusinessLogic>();
             var employeeService = _serviceProvider.GetRequiredService<IEmployeeService>();

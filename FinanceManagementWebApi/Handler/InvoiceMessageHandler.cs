@@ -15,6 +15,8 @@ namespace FinanceManagementWebApi.Handler
 
         public void Process(string message)
         {
+            if (string.IsNullOrEmpty(message))
+                throw new ArgumentNullException("Message is null");
             var mappedInvoice = JsonSerializer.Deserialize<InvoiceDto>(message);
 
             Console.WriteLine($"Invoice Received from {mappedInvoice.Sender}");
@@ -23,5 +25,6 @@ namespace FinanceManagementWebApi.Handler
 
             Console.WriteLine("Invoice stored");
         }
+
     }
 }

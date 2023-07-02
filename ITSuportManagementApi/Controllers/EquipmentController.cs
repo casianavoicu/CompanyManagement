@@ -28,9 +28,9 @@ namespace ITSuportManagementApi.Controllers
 
         [HttpGet]
         [Route("getEquipments")]
-        public async Task<ActionResult<List<Equipment>>> GetAllAsync ()
+        public async Task<ActionResult<List<Equipment>>> GetEquipmentsAsync()
         {
-            var result = await _employeeBusinessLogic.GetAllAsync();
+            var result = await _employeeBusinessLogic.GetEquipmentsAsync();
 
             return Ok(result);
         }

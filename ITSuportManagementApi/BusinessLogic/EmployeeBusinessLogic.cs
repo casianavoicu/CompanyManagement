@@ -53,7 +53,10 @@ namespace ITSuportManagementApi.BusinessLogic
             };
 
             _publisherHandler.Publish(ConstantHelper.InvoiceExchange, JsonSerializer.Serialize(invoice));
-            
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Invoice Sent");
+
             return invoice;
         }
 
@@ -75,9 +78,9 @@ namespace ITSuportManagementApi.BusinessLogic
             return new EquipmentDto { EmployeeId = employeeId, EquipmentPrice = equipment.EquipmentPrice, EquipmentType = equipment.EquipmentType };
         }
 
-        public async Task<ActionResult<List<Equipment>>> GetAllAsync()
+        public async Task<ActionResult<List<Equipment>>> GetEquipmentsAsync()
         {
-            return await _employeeService.GetAllAsync();
+            return await _employeeService.GetEquipmentsAsync();
         }
     }
 }
