@@ -1,12 +1,8 @@
 ﻿using CompanyManagement.MessageIntegration;
-using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
-using NSubstitute.ExceptionExtensions;
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 using System.Text;
-using System.Threading.Channels;
 
 namespace CompanyManagement.Tests.MessageIntegration.Tests
 {
@@ -21,7 +17,6 @@ namespace CompanyManagement.Tests.MessageIntegration.Tests
             services.AddSingleton(mockedConnectionFactory);
             services.AddSingleton<IPublisherHandler, PublisherHandler>();
             _serviceProvider = services.BuildServiceProvider();
-
         }
 
         [Fact]

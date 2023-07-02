@@ -10,7 +10,7 @@ namespace CompanyManagement.MessageIntegration
         private readonly IConnectionFactory _connectionFactory;
         private readonly IEventingBasicConsumerWrapper _customEventingBasicConsumer;
 
-        public QueueHandler(IConnectionFactory connectionFactory, 
+        public QueueHandler(IConnectionFactory connectionFactory,
             IEventingBasicConsumerWrapper customEventingBasicConsumer)
         {
             _connectionFactory = connectionFactory;

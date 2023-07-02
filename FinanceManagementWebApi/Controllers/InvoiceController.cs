@@ -1,4 +1,3 @@
-using CompanyManagement.Common.Dto;
 using FinanceManagementWebApi.BusinessLogic;
 using FinanceManagementWebApi.Database.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +19,7 @@ namespace FinanceManagementWebApi.Controllers
         [Route("getAll")]
         public async Task<ActionResult<List<Invoice>>> GetAllAsync()
         {
-           return await _invoiceBusinessLogic.GetAllAsync();
+            return await _invoiceBusinessLogic.GetAllAsync();
         }
     }
 }

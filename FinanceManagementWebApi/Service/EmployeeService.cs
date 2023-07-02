@@ -12,7 +12,7 @@ namespace FinanceManagementWebApi.Service
             _context = context;
         }
 
-        public async Task CreateAsync(Employee employee )
+        public async Task CreateAsync(Employee employee)
         {
             _context.Employee.Add(employee);
 

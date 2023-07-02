@@ -30,7 +30,6 @@ internal class Program
         builder.Services.AddSingleton<IPublisherHandler, PublisherHandler>();
         var app = builder.Build();
 
-
         var userMessageHandler = app.Services.GetRequiredService<IUserMessageHandler>();
         var userQueueHandler = app.Services.GetRequiredService<IQueueHandler>();
         userQueueHandler.Register(ConstantHelper.UserExchange, userMessageHandler);

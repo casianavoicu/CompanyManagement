@@ -2,7 +2,7 @@
 
 namespace FinanceManagementWebApi.Service
 {
-    public interface IInvoiceService 
+    public interface IInvoiceService
     {
         Task CreateAsync(Invoice invoice);
 

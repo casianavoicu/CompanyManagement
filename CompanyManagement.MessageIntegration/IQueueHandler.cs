@@ -1,6 +1,6 @@
 ﻿namespace CompanyManagement.MessageIntegration
 {
-    public interface IQueueHandler 
+    public interface IQueueHandler
     {
         void Register(string exchangeName, IMessageHandler message);
     }

@@ -4,7 +4,6 @@ using FinanceManagementWebApi.BusinessLogic;
 using FinanceManagementWebApi.Database;
 using FinanceManagementWebApi.Database.Entities;
 using FinanceManagementWebApi.Service;
-using ITSuportManagementApi.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;

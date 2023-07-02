@@ -3,7 +3,6 @@
     public class EmployeeDto : EmployeeLightDto
     {
         public int EmployeeId { get; set; }
-
     }
 
     public class EmployeeLightDto
@@ -18,7 +17,6 @@
 
         public DepartamentEnum Departament { get; set; }
     }
-
 
     public enum DepartamentEnum
     {

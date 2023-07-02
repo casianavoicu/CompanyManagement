@@ -7,6 +7,7 @@ namespace ITSuportManagementApi.Database.Entities
     {
         [Key]
         public int Id { get; set; }
+
         public EquipmentEnum EquipmentType { get; set; }
 
         public decimal EquipmentPrice { get; set; }

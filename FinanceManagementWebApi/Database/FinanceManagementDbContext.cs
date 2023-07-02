@@ -7,7 +7,6 @@ namespace FinanceManagementWebApi.Database
     {
         public FinanceManagementDbContext()
         {
-
         }
 
         public FinanceManagementDbContext(DbContextOptions<FinanceManagementDbContext> options) : base(options)

@@ -1,5 +1,4 @@
 ﻿using AutoFixture;
-using AutoMapper;
 using CompanyManagement.Common.Dto;
 using CompanyManagement.MessageIntegration;
 using FluentAssertions;
@@ -61,7 +60,6 @@ namespace CompanyManagement.Tests.HRManagement.Tests.Integration
             var getAllResult = await employeeBusinessLogic.GetAllAsync();
 
             expectedResult.Should().BeEquivalentTo(getAllResult.Value);
-
         }
 
         [Theory]
@@ -132,7 +130,5 @@ namespace CompanyManagement.Tests.HRManagement.Tests.Integration
 
             return new List<EmployeeDto> { firstEmployee, secondEmployee };
         }
-
     }
-
 }

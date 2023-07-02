@@ -3,9 +3,10 @@ using System.Text.Json;
 
 namespace ITSuportManagementApi.BusinessLogic
 {
-    sealed public class UserMessageHandler : IUserMessageHandler
+    public sealed class UserMessageHandler : IUserMessageHandler
     {
         private readonly IEmployeeBusinessLogic _employeeBusinessLogic;
+
         public UserMessageHandler(IEmployeeBusinessLogic employeeBusinessLogic)
         {
             _employeeBusinessLogic = employeeBusinessLogic;
@@ -20,5 +21,4 @@ namespace ITSuportManagementApi.BusinessLogic
             _employeeBusinessLogic.HandleRegistrationAsync(userDto!).GetAwaiter().GetResult();
         }
     }
-
 }

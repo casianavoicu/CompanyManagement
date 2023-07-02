@@ -8,6 +8,7 @@ namespace CompanyManagement.MessageIntegration
         private IModel _channel;
         private IConnection _connection;
         private readonly IConnectionFactory _connectionFactory;
+
         public PublisherHandler(IConnectionFactory connectionFactory)
         {
             //var factory = new ConnectionFactory { HostName = "localhost" };

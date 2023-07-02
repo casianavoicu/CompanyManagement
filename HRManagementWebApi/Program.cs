@@ -1,16 +1,15 @@
-using Microsoft.EntityFrameworkCore;
+using CompanyManagement.MessageIntegration;
 using HRManagementWebApi.Automapper;
 using HRManagementWebApi.BusinessLogic;
 using HRManagementWebApi.Database;
 using HRManagementWebApi.Service;
-using CompanyManagement.MessageIntegration;
-using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
+using System.Diagnostics.CodeAnalysis;
 
 internal class Program
 {
     [ExcludeFromCodeCoverage]
-
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello from HRManagement");

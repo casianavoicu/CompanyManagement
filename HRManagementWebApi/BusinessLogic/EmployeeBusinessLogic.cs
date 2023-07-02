@@ -4,21 +4,18 @@ using CompanyManagement.MessageIntegration;
 using CompanyManagement.MessageIntegration.Constants;
 using HRManagementWebApi.Database.Entities;
 using HRManagementWebApi.Service;
-using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.Mvc;
-using RabbitMQ.Client;
-using System.Text;
 using System.Text.Json;
 
 namespace HRManagementWebApi.BusinessLogic
 {
-    sealed public class EmployeeBusinessLogic : IEmployeeBusinessLogic
+    public sealed class EmployeeBusinessLogic : IEmployeeBusinessLogic
     {
         private readonly IEmployeeService _employeeService;
         private IPublisherHandler _publisherHandler;
         private readonly IMapper _mapper;
 
-        public EmployeeBusinessLogic(IEmployeeService employeeService, 
+        public EmployeeBusinessLogic(IEmployeeService employeeService,
             IMapper mapper, IPublisherHandler publisherHandler)
         {
             _employeeService = employeeService;
@@ -33,7 +30,6 @@ namespace HRManagementWebApi.BusinessLogic
             if (employeeDbResult == null)
             {
                 return new NotFoundResult();
-
             }
 
             return _mapper.Map<List<EmployeeDto>>(employeeDbResult);
@@ -59,11 +55,11 @@ namespace HRManagementWebApi.BusinessLogic
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("User Created");
-                _publisherHandler.Publish(ConstantHelper.UserExchange, JsonSerializer.Serialize(createdUser));
+                _publisherHandler.Publish(ConstantHelper.UserExchange, JsonSerializer.Serialize(createdUser.Value));
 
                 return new NoContentResult();
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 return new UnprocessableEntityObjectResult(ex.Message);
             }

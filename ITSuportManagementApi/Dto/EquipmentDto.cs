@@ -9,6 +9,5 @@ namespace ITSuportManagementApi.Dto
         public decimal EquipmentPrice { get; set; }
 
         public int EmployeeId { get; set; }
-
     }
 }

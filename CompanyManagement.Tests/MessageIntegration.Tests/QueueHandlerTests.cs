@@ -21,7 +21,6 @@ namespace CompanyManagement.Tests.MessageIntegration.Tests
             services.AddSingleton(mockedCustomEventingBasicConsumer);
             services.AddSingleton<IQueueHandler, QueueHandler>();
             _serviceProvider = services.BuildServiceProvider();
-
         }
 
         [Fact]
@@ -40,7 +39,7 @@ namespace CompanyManagement.Tests.MessageIntegration.Tests
 
             mockedConnectionFactory.CreateConnection().Returns(mockedConnection);
             mockedConnection.CreateModel().Returns(mockedChannel);
-            mockedChannel.QueueDeclare().Returns(new QueueDeclareOk(queueName, 0, 0 ));
+            mockedChannel.QueueDeclare().Returns(new QueueDeclareOk(queueName, 0, 0));
             mockedEventingBasicConsumerMock.GetConsumer(mockedChannel).Returns(eventing);
 
             var queueHandler = new QueueHandler(mockedConnectionFactory, mockedEventingBasicConsumerMock);
@@ -52,6 +51,5 @@ namespace CompanyManagement.Tests.MessageIntegration.Tests
 
             mockedChannel.Received(1).BasicConsume(queue: queueName, autoAck: true, consumer: Arg.Any<IBasicConsumer>());
         }
-
     }
 }

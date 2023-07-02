@@ -5,7 +5,6 @@ using FinanceManagementWebApi.Database;
 using FinanceManagementWebApi.Database.Entities;
 using FinanceManagementWebApi.Service;
 using FluentAssertions;
-using ITSuportManagementApi.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
@@ -61,7 +60,6 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests.Unit
         [Fact]
         public async Task GetAllAsync_Should_Return_InvoiceList()
         {
-
             var invoiceBusinessLogic = _serviceProvider.GetRequiredService<IInvoiceBusinessLogic>();
             var invoiceService = _serviceProvider.GetRequiredService<IInvoiceService>();
 

@@ -75,7 +75,6 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests
         [InlineData(DepartamentEnum.Marketing, 200, EquipmentEnum.PC)]
         public async Task HandleEquipmentAsync_Should_Return_NewInvoice(DepartamentEnum departamentEnum, decimal price, EquipmentEnum equipmentType)
         {
-
             var expectedDtoResult = new InvoiceDto
             {
                 Price = price,
@@ -108,8 +107,6 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests
 
             var _employeeBusinessLogic = _serviceProvider.GetRequiredService<IEmployeeBusinessLogic>();
             await Assert.ThrowsAsync<ArgumentNullException>(async () => await _employeeBusinessLogic.HandleEquipmentAsync(departamentEnum, employeeId));
-
         }
-
     }
 }

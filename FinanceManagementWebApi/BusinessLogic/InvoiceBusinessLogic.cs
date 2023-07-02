@@ -9,16 +9,17 @@ namespace FinanceManagementWebApi.BusinessLogic
     public class InvoiceBusinessLogic : IInvoiceBusinessLogic
     {
         private readonly IInvoiceService _invoiceService;
+
         public InvoiceBusinessLogic(IInvoiceService invoiceService)
         {
             _invoiceService = invoiceService;
-        } 
+        }
 
         public async Task CreateAsync(InvoiceDto invoice)
         {
-            if(invoice.Product == null)
+            if (invoice.Product == null)
                 throw new ArgumentNullException(nameof(invoice.Product));
-            
+
             var dbInvoice = new Invoice
             {
                 InvoiceBody = JsonSerializer.Serialize(invoice),

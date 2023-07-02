@@ -115,7 +115,6 @@ namespace CompanyManagement.Tests.HRManagement.Tests.Unit
             var mockedEmployeeService = _serviceProvider.GetRequiredService<IEmployeeService>();
             mockedEmployeeService.AddAsync(Arg.Any<Employee>()).Returns(employee);
 
-
             var getByIdResult = await employeeBusinessLogic.HandleUserRegistration(employeeLightDto);
 
             Assert.IsType<NoContentResult>(getByIdResult);
@@ -158,6 +157,5 @@ namespace CompanyManagement.Tests.HRManagement.Tests.Unit
 
             Assert.IsType<UnprocessableEntityObjectResult>(getByIdResult);
         }
-
     }
 }

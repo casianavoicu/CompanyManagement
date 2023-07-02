@@ -1,9 +1,7 @@
 ﻿using AutoFixture;
-using CompanyManagement.Common.Dto;
 using FinanceManagementWebApi.BusinessLogic;
 using FinanceManagementWebApi.Controllers;
 using FinanceManagementWebApi.Database.Entities;
-using HRManagementWebApi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;

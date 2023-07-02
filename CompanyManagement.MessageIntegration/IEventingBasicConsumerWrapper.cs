@@ -7,5 +7,4 @@ namespace CompanyManagement.MessageIntegration
     {
         EventingBasicConsumer GetConsumer(IModel channel);
     }
-
 }

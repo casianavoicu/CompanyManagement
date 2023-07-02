@@ -10,6 +10,6 @@ namespace ITSuportManagementApi.BusinessLogic
 
         Task<InvoiceDto> HandleRegistrationAsync(EmployeeDto employeeDto);
 
-        Task<ActionResult<List<Equipment>>>GetEquipmentsAsync();
+        Task<ActionResult<List<Equipment>>> GetEquipmentsAsync();
     }
 }

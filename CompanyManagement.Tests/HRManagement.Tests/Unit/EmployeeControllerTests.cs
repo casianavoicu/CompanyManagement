@@ -12,7 +12,7 @@ namespace CompanyManagement.Tests.HRManagement.Tests.Unit
     {
         private readonly ServiceProvider _serviceProvider;
         private readonly Fixture _fixture;
-        
+
         public EmployeeControllerTests()
         {
             var services = new ServiceCollection();
@@ -62,6 +62,5 @@ namespace CompanyManagement.Tests.HRManagement.Tests.Unit
 
             Assert.IsType<ActionResult<List<EmployeeDto>>>(result);
         }
-
     }
 }

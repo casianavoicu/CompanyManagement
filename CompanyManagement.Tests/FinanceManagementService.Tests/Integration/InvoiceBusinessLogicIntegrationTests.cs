@@ -9,8 +9,6 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualBasic;
-using System.Reflection;
 using System.Text.Json;
 
 namespace CompanyManagement.Tests.FinanceManagementService.Tests.Integration
@@ -87,7 +85,7 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests.Integration
             var invoiceBusinessLogic = _serviceProvider.GetRequiredService<IInvoiceBusinessLogic>();
 
             var result = await invoiceBusinessLogic.GetAllAsync();
-            
+
             result.Value.Should().BeEquivalentTo(SeedData());
             Assert.IsType<ActionResult<List<Invoice>>>(result);
         }

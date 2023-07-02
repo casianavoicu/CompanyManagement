@@ -5,10 +5,8 @@ using FinanceManagementWebApi.Database;
 using FinanceManagementWebApi.Database.Entities;
 using FinanceManagementWebApi.Service;
 using FluentAssertions;
-using HRManagementWebApi.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using NSubstitute;
 
 namespace CompanyManagement.Tests.FinanceManagementService.Tests.Integration
 {
@@ -46,7 +44,7 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests.Integration
 
             var employeeBusinessLogic = _serviceProvider.GetRequiredService<IEmployeeBusinessLogic>();
             var employeeService = _serviceProvider.GetRequiredService<IEmployeeService>();
-          
+
             await employeeBusinessLogic.CreateAsync(employeeDto!);
 
             var createdEmployee = await _dbContext.Employee.FindAsync(id);

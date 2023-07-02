@@ -7,12 +7,10 @@ namespace ITSuportManagementApi.Database
     {
         public ITSupportManagementDbContext()
         {
-
         }
 
         public ITSupportManagementDbContext(DbContextOptions<ITSupportManagementDbContext> options) : base(options)
         {
-
         }
 
         public DbSet<Employee> Employee { get; set; }

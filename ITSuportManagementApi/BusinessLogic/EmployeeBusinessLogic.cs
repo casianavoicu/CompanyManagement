@@ -9,13 +9,15 @@ using System.Text.Json;
 
 namespace ITSuportManagementApi.BusinessLogic
 {
-    sealed public class EmployeeBusinessLogic : IEmployeeBusinessLogic
+    public sealed class EmployeeBusinessLogic : IEmployeeBusinessLogic
     {
         private readonly IEmployeeService _employeeService;
+
         private readonly Dictionary<int, decimal> _equipmentProducts
             = new Dictionary<int, decimal>() { { (int)EquipmentEnum.PC, 200 }, { (int)EquipmentEnum.Laptop, 400 } };
 
         private readonly IPublisherHandler _publisherHandler;
+
         public EmployeeBusinessLogic(IEmployeeService employeeService, IPublisherHandler publisherHandler)
         {
             _employeeService = employeeService;
@@ -40,7 +42,7 @@ namespace ITSuportManagementApi.BusinessLogic
 
         public async Task<InvoiceDto> HandleEquipmentAsync(DepartamentEnum departament, int employeeId)
         {
-            if(employeeId == default)
+            if (employeeId == default)
                 throw new ArgumentNullException(nameof(employeeId));
 
             var equipment = await AssignEquipment(departament, employeeId);
@@ -64,12 +66,13 @@ namespace ITSuportManagementApi.BusinessLogic
         {
             var equipmentType = departament == DepartamentEnum.IT ? EquipmentEnum.Laptop : EquipmentEnum.PC;
 
-            var equipment = new Equipment 
+            var equipment = new Equipment
             {
                 EmployeeId = employeeId,
                 EquipmentPrice = _equipmentProducts.GetValueOrDefault((int)equipmentType),
-                EquipmentType = equipmentType };
-           
+                EquipmentType = equipmentType
+            };
+
             await _employeeService.AssignEquipmentAsync(equipment);
 
             Console.ForegroundColor = ConsoleColor.Yellow;

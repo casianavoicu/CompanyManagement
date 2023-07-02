@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace FinanceManagementWebApi.Handler
 {
-    sealed  public class UserMessageHandler : IUserMessageHandler
+    public sealed class UserMessageHandler : IUserMessageHandler
     {
         private readonly IEmployeeBusinessLogic _employeeBusinessLogic;
 

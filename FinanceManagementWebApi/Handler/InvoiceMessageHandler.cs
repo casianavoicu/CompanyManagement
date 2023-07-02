@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace FinanceManagementWebApi.Handler
 {
-    sealed public class InvoiceMessageHandler : IInvoiceMessageHandler
+    public sealed class InvoiceMessageHandler : IInvoiceMessageHandler
     {
         private readonly IInvoiceBusinessLogic _invoiceBusinessLogic;
 
@@ -25,6 +25,5 @@ namespace FinanceManagementWebApi.Handler
 
             Console.WriteLine("Invoice stored");
         }
-
     }
 }

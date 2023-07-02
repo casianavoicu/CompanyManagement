@@ -2,6 +2,6 @@
 {
     public interface IMessageHandler
     {
-      void Process(string message);
+        void Process(string message);
     }
 }

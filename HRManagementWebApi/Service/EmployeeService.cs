@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HRManagementWebApi.Service
 {
-    sealed public class EmployeeService : IEmployeeService
+    public sealed class EmployeeService : IEmployeeService
     {
         private readonly HRManagementDbContext _dbContext;
 

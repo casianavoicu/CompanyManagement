@@ -3,9 +3,7 @@ using CompanyManagement.Common.Dto;
 using CompanyManagement.MessageIntegration;
 using CompanyManagement.MessageIntegration.Constants;
 using FluentAssertions;
-using FluentAssertions.Common;
 using HRManagementWebApi.Automapper;
-using HRManagementWebApi.Database;
 using ITSuportManagementApi.BusinessLogic;
 using ITSuportManagementApi.Database;
 using ITSuportManagementApi.Database.Entities;
@@ -20,6 +18,7 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
     {
         private readonly ServiceProvider _serviceProvider;
         private readonly Fixture _fixture;
+
         public EmployeeBusinessLogicIntegrationTests()
         {
             var services = new ServiceCollection();
@@ -39,7 +38,6 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
             Setup();
         }
 
-
         [Fact]
         public async Task GetAll_Should_Return_EquipmentsList()
         {
@@ -56,7 +54,7 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
         public async Task HandleRegistrationAsync_Should_Return_NewInvoice(DepartamentEnum departamentEnum, decimal price, EquipmentEnum equipment)
         {
             var employeeDto = MapEmployeeData().FirstOrDefault(e => e.Departament == departamentEnum);
-            
+
             var expectedDtoResult = new InvoiceDto
             {
                 Price = price,
@@ -92,7 +90,6 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
             result.Should().BeEquivalentTo(expectedDtoResult);
         }
 
-
         private void Setup()
         {
             var _dbContext = _serviceProvider
@@ -108,6 +105,7 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
             _dbContext.Equipment.AddRange(equipmentResult);
             _dbContext.SaveChanges();
         }
+
         private List<Employee> SeedEmployeeData()
         {
             var firstEmployee = new Employee
@@ -160,7 +158,6 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
                 Id = 1,
                 EquipmentPrice = 200,
                 EquipmentType = EquipmentEnum.PC
-
             };
             var secondEmployee = new Equipment
             {
@@ -172,6 +169,5 @@ namespace CompanyManagement.Tests.ITSupportManagementService.Tests.Integration
 
             return new List<Equipment> { firstEmployee, secondEmployee };
         }
-       
     }
 }

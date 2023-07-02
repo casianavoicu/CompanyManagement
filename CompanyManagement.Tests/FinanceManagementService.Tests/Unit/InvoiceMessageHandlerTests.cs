@@ -1,5 +1,4 @@
-﻿using AutoFixture;
-using CompanyManagement.Common.Dto;
+﻿using CompanyManagement.Common.Dto;
 using CompanyManagement.MessageIntegration.Constants;
 using FinanceManagementWebApi.BusinessLogic;
 using FinanceManagementWebApi.Handler;
@@ -31,15 +30,15 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests.Unit
                 Product = EquipmentEnum.Laptop.ToString(),
                 Sender = ConstantHelper.HRSupportSender
             };
-            var message =JsonSerializer.Serialize(invoiceMessage);
+            var message = JsonSerializer.Serialize(invoiceMessage);
 
             var invoiceMessageHandler = _serviceProvider.GetRequiredService<IInvoiceMessageHandler>();
 
             var invoiceBusinessLogic = _serviceProvider.GetRequiredService<IInvoiceBusinessLogic>();
 
-             invoiceMessageHandler.Process(message);
+            invoiceMessageHandler.Process(message);
 
-             invoiceBusinessLogic.Received(1).CreateAsync(Arg.Any<InvoiceDto>());
+            invoiceBusinessLogic.Received(1).CreateAsync(Arg.Any<InvoiceDto>());
         }
 
         [Theory]
@@ -55,6 +54,5 @@ namespace CompanyManagement.Tests.FinanceManagementService.Tests.Unit
 
             invoiceBusinessLogic.Received(0).CreateAsync(Arg.Any<InvoiceDto>());
         }
-
     }
 }

@@ -6,7 +6,6 @@ namespace HRManagementWebApi.Automapper
 {
     public class EmployeeMapperProfile : Profile
     {
-
         public EmployeeMapperProfile()
         {
             CreateMap<Employee, EmployeeDto>()

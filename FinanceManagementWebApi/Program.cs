@@ -42,8 +42,6 @@ internal class Program
         userQueueHandler.Register(ConstantHelper.UserExchange, userMessageHandler);
         invoiceQueueHandler.Register(ConstantHelper.InvoiceExchange, invoiceMessageHandler);
 
-
-
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

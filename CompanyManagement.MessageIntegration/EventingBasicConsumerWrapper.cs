@@ -12,5 +12,4 @@ namespace CompanyManagement.MessageIntegration
             return new EventingBasicConsumer(channel);
         }
     }
-
 }
