@@ -1,1 +1,6 @@
 <img width="589" alt="image" src="https://github.com/casianavoicu/CompanyManagement/assets/37022808/244e92f6-dfa2-4c59-829a-ded09b8db841">
+
+
+For rabbitmq:
+
+docker run --hostname=my-rabbitmq-server --env=LANG=C.UTF-8 --env=RABBITMQ_VERSION=3.12.0 --env=LC_ALL=C.UTF-8 --env=PATH=/opt/rabbitmq/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=HOME=/var/lib/rabbitmq --env=RABBITMQ_HOME=/opt/rabbitmq --env=RABBITMQ_DATA_DIR=/var/lib/rabbitmq --env=RABBITMQ_PGP_KEY_ID=0x0A9AF2115F4687BD29803A206B73A36E6026DFCA --env=LANGUAGE=C.UTF-8 --volume=/var/lib/rabbitmq -p 15672:15672 -p 5672:5672 --label='com.docker.compose.config-hash=5bf9f589bceba2a9bb043a00410f27947769a421c560601810f9a34ff8cbf728' --label='com.docker.compose.container-number=1' --label='com.docker.compose.depends_on=' --label='com.docker.compose.image=sha256:fa6f2153e5c01ced5c73cdb115aeb13571783d03aa3f6875c47b5eace6897c53' --label='com.docker.compose.oneoff=False' --label='com.docker.compose.project=companymanagement' --label='com.docker.compose.service=rabbitmq' --label='com.docker.compose.version=2.15.1' --label='desktop.docker.io/wsl-distro=Ubuntu' --label='org.opencontainers.image.ref.name=ubuntu' --label='org.opencontainers.image.version=22.04' --runtime=runc -d rabbitmq:3-management
