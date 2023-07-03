@@ -4,7 +4,7 @@
     {
         public const string InvoiceExchange = "invoice";
 
-        public const string UserExchange = "userregistration";
+        public const string UserExchange = "employee";
 
         public const string ITSupportSender = "ITSupport";
 

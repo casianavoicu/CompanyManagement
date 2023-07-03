@@ -12,8 +12,6 @@ namespace CompanyManagement.MessageIntegration
         public PublisherHandler(IConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
-            _connectionFactory.UserName = "guest";
-            _connectionFactory.Password = "guest";
             _connection = _connectionFactory.CreateConnection();
             _channel = _connection.CreateModel();
         }

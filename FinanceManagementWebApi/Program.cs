@@ -22,7 +22,7 @@ internal class Program
                     (options => options.UseInMemoryDatabase("FinanceManagementDbContext"), ServiceLifetime.Singleton);
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddSingleton<IConnectionFactory>(new ConnectionFactory { HostName = "localhost" });
+        builder.Services.AddSingleton<IConnectionFactory>(new ConnectionFactory { HostName = "localhost", UserName = "guest", Password = "guest" });
         builder.Services.AddTransient<IQueueHandler, QueueHandler>();
         builder.Services.AddSingleton<IInvoiceMessageHandler, InvoiceMessageHandler>();
         builder.Services.AddSingleton<IUserMessageHandler, UserMessageHandler>();

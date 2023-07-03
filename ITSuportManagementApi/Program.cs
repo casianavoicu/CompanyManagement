@@ -21,7 +21,7 @@ internal class Program
                     (options => options.UseInMemoryDatabase("ITSupportManagementDbContext"), ServiceLifetime.Singleton);
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddSingleton<IConnectionFactory>(new ConnectionFactory { HostName = "localhost" });
+        builder.Services.AddSingleton<IConnectionFactory>(new ConnectionFactory { HostName = "localhost" , UserName = "guest", Password ="guest"});
         builder.Services.AddSingleton<IUserMessageHandler, UserMessageHandler>();
         builder.Services.AddTransient<IQueueHandler, QueueHandler>();
         builder.Services.AddTransient<IEventingBasicConsumerWrapper, EventingBasicConsumerWrapper>();

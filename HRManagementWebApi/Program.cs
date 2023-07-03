@@ -22,7 +22,7 @@ internal class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddSingleton<IConnectionFactory>(new ConnectionFactory { HostName = "localhost" });
+        builder.Services.AddSingleton<IConnectionFactory>(new ConnectionFactory { HostName = "localhost", UserName = "guest", Password = "guest" });
         builder.Services.AddTransient<IEventingBasicConsumerWrapper, EventingBasicConsumerWrapper>();
         builder.Services.AddTransient<IEmployeeBusinessLogic, EmployeeBusinessLogic>();
         builder.Services.AddTransient<IEmployeeService, EmployeeService>();
